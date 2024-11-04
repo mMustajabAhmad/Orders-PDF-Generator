@@ -1,0 +1,2 @@
+class CateringOrder < ApplicationRecord
+end

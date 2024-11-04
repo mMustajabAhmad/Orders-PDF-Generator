@@ -1,0 +1,59 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_number: MyString
+  order_date: 2024-11-04
+  first_name: MyString
+  last_name: MyString
+  company_name: MyString
+  paid_by: MyString
+  card_number: MyString
+  billing_address: MyString
+  delivery_date: 2024-11-04
+  delivery_time: MyString
+  vendor: MyString
+  delivery_address: MyString
+  food_total: 1.5
+  service_fee: 1.5
+  delivery_fee: 1.5
+  tip: 1.5
+  tax: 1.5
+  grand_total: 1.5
+  item_quantity: MyString
+  integer: MyString
+  item_name: MyString
+  string: MyString
+  instructions: MyString
+  text: MyString
+  item_price: MyString
+  float: MyString
+  item_total: 1.5
+
+two:
+  order_number: MyString
+  order_date: 2024-11-04
+  first_name: MyString
+  last_name: MyString
+  company_name: MyString
+  paid_by: MyString
+  card_number: MyString
+  billing_address: MyString
+  delivery_date: 2024-11-04
+  delivery_time: MyString
+  vendor: MyString
+  delivery_address: MyString
+  food_total: 1.5
+  service_fee: 1.5
+  delivery_fee: 1.5
+  tip: 1.5
+  tax: 1.5
+  grand_total: 1.5
+  item_quantity: MyString
+  integer: MyString
+  item_name: MyString
+  string: MyString
+  instructions: MyString
+  text: MyString
+  item_price: MyString
+  float: MyString
+  item_total: 1.5

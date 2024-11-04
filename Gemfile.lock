@@ -137,6 +137,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
+    ostruct (0.6.0)
+    pagy (9.1.1)
     pg (1.5.9)
     psych (5.1.2)
       stringio
@@ -193,6 +195,10 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked_pdf (2.8.2)
+      activesupport
+      ostruct
+    wkhtmltopdf-binary (0.12.3.1)
     zeitwerk (2.7.1)
 
 PLATFORMS
@@ -206,10 +212,13 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  pagy
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.4, >= 7.1.4.2)
   tzinfo-data
+  wicked_pdf
+  wkhtmltopdf-binary (= 0.12.3.1)
 
 RUBY VERSION
    ruby 3.3.3p89
