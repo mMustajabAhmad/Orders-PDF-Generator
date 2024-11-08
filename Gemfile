@@ -36,8 +36,10 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary', '0.12.3.1'
+gem 'wkhtmltopdf-binary'
 gem 'pagy'
+gem 'rack-cors'
+
 
 
 group :development, :test do
