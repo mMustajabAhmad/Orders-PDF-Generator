@@ -1,0 +1,127 @@
+<div class="container">
+  <table class="header">
+    <tr>
+      <td> 
+        <%# <img src="hungerlogo.png" alt="Hunger Hub Logo" height="40"> %>
+        <%# <%= wicked_pdf_image_tag 'hunferlogo.jpg' %>
+        <%# <%= image_tag image_url('dir/image.png') %>
+      </td>
+      <td style="text-align: right;">
+        <div>Order Number: <%= order.order_number %></div>
+        <div>Order Date: <%= order.order_date %></div>
+      </td>
+    </tr>
+  </table>
+
+<table class="from_bill_section">
+<tr>
+    <td class="quarter">
+        <div class="from_bill_section_heading">FROM</div>
+        <div class="section_details">
+            HUNGERHUB CANADA INC<br>
+            180 John Street<br>
+            Toronto, ON<br>
+            M5T 1X5<br>
+            HST/GST 730164282RT001<br>
+            help@hungerhub.com<br><br>
+        </div>
+    </td>
+    <td class="quarter" style="padding-left: 24px;">
+    <div class="from_bill_section_heading">BILLED TO</div>
+    <div class="section_details">
+        <%= order.first_name %> <%= order.last_name %><br>
+        <%= order.company_name.presence || "N/A" %><br>
+        Paid by: <%= order.payment.paid_by || 'N/A' %><br>
+        Card Number: <%= order.payment.card_number || 'N/A' %><br>
+        <%= order.billing_address %><br>
+        Toronto, ON<br>
+        M5T 1X5
+    </div>
+    </td>
+</tr>
+</table>
+
+<table class="delivery_payment_section" style="margin-bottom: 14px;">
+    <tr>
+      <td class="quarter">
+        <div class="section_heading">Delivery Details</div>
+        <div class="section_details" style="padding-bottom: 7px;">
+          Delivery Date: <%= order.delivery.delivery_date || 'N/A' %><br>
+          Delivery Time: <%= order.delivery.delivery_time || 'N/A' %><br>
+          Vendor: <%= order.delivery.vendor || 'N/A' %><br>
+          Delivery Address: <%= order.delivery.delivery_address || 'N/A' %><br><br>
+        </div>
+      </td>
+      <td class="quarter" style="padding-left: 24px;">
+        <div class="section_heading">Payment Details</div>
+        <div class="section_details">
+          <table>
+            <tr>
+              <td class="item-tag">Food Total:</td>
+              <td class="item_value"><%= number_to_currency(order.food_total) %></td>
+            </tr>
+            <tr>
+              <td class="item-tag">Service Fee:</td>
+              <td class="item_value"><%= number_to_currency(order.service_fee) %></td>
+            </tr>
+            <tr>
+              <td class="item-tag">Delivery Fee:</td>
+              <td class="item_value"><%= number_to_currency(order.delivery_fee) %></td>
+            </tr>
+            <tr>
+              <td class="item-tag">Tip:</td>
+              <td class="item_value"><%= number_to_currency(order.tip) %></td>
+            </tr>
+            <tr>
+              <td class="item-tag">Tax:</td>
+              <td class="item_value"><%= number_to_currency(order.tax) %></td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="total_wrapper">
+    <table class="total">
+      <tr>
+        <td><strong>Total: <%= number_to_currency(order.grand_total) %></strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <table class="order_section">
+    <tr>
+      <td class="order_section_heading">
+        Order Details
+      </td>
+    </tr>
+  </table>
+
+  <table class="order_section_header">
+    <thead>
+      <tr>
+        <th width="10%">Quantity</th>
+        <th width="25%">Item Name</th>
+        <th width="25%">Special Instructions</th>
+        <th width="20%">Item Price</th>
+        <th width="20%">Total</th>
+      </tr>
+    </thead>
+    <tbody class="order_section_body">
+      <% order.order_items.each do |item| %>
+        <tr>
+          <td><%= item.item_quantity %></td>
+          <td><%= item.item_name %></td>
+          <td><%= item.instructions %></td>
+          <td><%= number_to_currency(item.item_price) %></td>
+          <td><%= number_to_currency(item.item_total) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="page_footer">
+    Page 1 of 1
+  </div>
+</div>
