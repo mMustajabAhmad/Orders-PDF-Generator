@@ -39,6 +39,10 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'pagy'
 gem 'rack-cors'
+gem 'sprockets-rails'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 
 
 

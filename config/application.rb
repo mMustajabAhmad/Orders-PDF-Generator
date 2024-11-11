@@ -29,6 +29,8 @@ module OrderPdfGenerator
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = false
     config.public_file_server.enabled = true
-
+    config.assets.paths << Rails.root.join("app", "assets", "images")
+    config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
+    config.assets.paths << Rails.root.join("app", "assets", "javascripts")
   end
 end
