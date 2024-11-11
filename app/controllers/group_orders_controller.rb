@@ -17,7 +17,13 @@ class GroupOrdersController < ApplicationController
           enable_local_file_access: true
         )
 
-        pdf = WickedPdf.new.pdf_from_string(pdf_html)
+        pdf = WickedPdf.new.pdf_from_string(
+            pdf_html,
+            footer: {
+            center: 'Page [page] of [topage]',
+            font_size: 8
+            }
+          )
         send_data pdf, filename: 'GroupOrder.pdf', type: 'application/pdf', disposition: 'inline'
       end
     end

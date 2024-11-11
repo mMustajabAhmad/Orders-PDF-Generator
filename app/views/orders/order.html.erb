@@ -89,22 +89,20 @@
   </div>
 
   <table class="order_section">
-    <tr>
-      <td class="order_section_heading">
-        Order Details
-      </td>
-    </tr>
-  </table>
-
-  <table class="order_section_header">
     <thead>
-      <tr>
-        <th width="10%">Quantity</th>
-        <th width="25%">Item Name</th>
-        <th width="25%">Special Instructions</th>
-        <th width="20%">Item Price</th>
-        <th width="20%">Total</th>
-      </tr>
+        <tr>
+            <td class="order_section_heading" colspan="5">
+                Order Details
+            </td>
+        </tr>
+        <td colspan="5" style="height: 20px;"></td>
+        <tr>
+            <th width="13%">Qunatity</th>
+            <th width="25%">Item Name</th>
+            <th width="25%">Special Instructions</th>
+            <th width="20%">Item Price</th>
+            <th width="20%">Total</th>
+        </tr>
     </thead>
     <tbody class="order_section_body">
       <% order.order_items.each do |item| %>
@@ -118,8 +116,5 @@
       <% end %>
     </tbody>
   </table>
-
-  <div class="page_footer">
-    Page 1 of 1
-  </div>
+  
 </div>
