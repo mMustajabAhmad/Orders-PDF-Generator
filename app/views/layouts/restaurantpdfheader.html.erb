@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order PDF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: #2D3958; 
+            padding: 0px 20px 20px 20px; 
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .header_tag {
+            font-size: 12px;
+            color: #6A7A9B;
+        }
+        .restaurant_name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .time_format .delivery_details_items{
+            font-weight: lighter;
+            font-size: 14px;
+        }
+    </style>
+    </head>
+    <body>
+        <%= yield %>
+    </body>
+</html>
