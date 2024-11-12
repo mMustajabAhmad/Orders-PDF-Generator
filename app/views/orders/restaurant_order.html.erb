@@ -55,7 +55,9 @@
     <div class="bill_frame">
       <div>
         <p>Food Total</p>
-        <p>Tip</p>
+        <% if restaurant_order.tip.present? %>
+          <p>Tip</p>
+        <%end%>
         <p>Tax</p>
         <h3>Grand Total</h3>
       </div>

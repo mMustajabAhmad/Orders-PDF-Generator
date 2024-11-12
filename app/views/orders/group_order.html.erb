@@ -30,7 +30,11 @@
         <%= order.first_name %> <%= order.last_name %><br>
         <%= order.company_name.presence || "N/A" %><br>
         Paid by: <%= order.payment.paid_by || 'N/A' %><br>
-        Card Number: <%= order.payment.card_number || 'N/A' %><br>
+          <% if order.payment.paid_by == 'Credit Card' %>
+              Card Number: <%= "#{order.payment.card_number.to_s[0..1]}******#{order.payment.card_number.to_s[-4..-1]}" || 'N/A' %><br>
+            <% else %>
+              <br>
+          <% end %>
         <%= order.billing_address %><br>
         Toronto, ON<br>
         M5T 1X5
@@ -56,23 +60,23 @@
           <table>
             <tr>
               <td class="item-tag">Food Total:</td>
-              <td class="item_value"><%= number_to_currency(order.food_total) %></td>
+              <td class="item_value"><%= (order.food_total) %></td>
             </tr>
             <tr>
               <td class="item-tag">Service Fee:</td>
-              <td class="item_value"><%= number_to_currency(order.service_fee) %></td>
+              <td class="item_value"><%= (order.service_fee) %></td>
             </tr>
             <tr>
               <td class="item-tag">Delivery Fee:</td>
-              <td class="item_value"><%= number_to_currency(order.delivery_fee) %></td>
+              <td class="item_value"><%= (order.delivery_fee) %></td>
             </tr>
             <tr>
               <td class="item-tag">Tip:</td>
-              <td class="item_value"><%= number_to_currency(order.tip) %></td>
+              <td class="item_value"><%= (order.tip) %></td>
             </tr>
             <tr>
               <td class="item-tag">Tax:</td>
-              <td class="item_value"><%= number_to_currency(order.tax) %></td>
+              <td class="item_value"><%= (order.tax) %></td>
             </tr>
           </table>
         </div>
@@ -88,18 +92,17 @@
     </table>
   </div>
 
-  <table class="order_section">
-    <tr>
-      <td class="order_section_heading">
-        Order Details
-      </td>
-    </tr>
-  </table>
-
+  
   <table class="order_section_header">
     <thead>
       <tr>
-        <th width="8%">Qunatity</th>
+            <td class="order_section_heading" colspan="6">
+                Order Details
+            </td>
+        </tr>
+        <td colspan="5" style="height: 20px; background-color: white"></td>
+      <tr>
+        <th width="13%">Qunatity</th>
         <th width="20%">Item Name</th>
         <th width="22%">Special Instructions</th>
         <th width="17%">Labeled as</th>
