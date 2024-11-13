@@ -1,0 +1,115 @@
+<div class="container">
+
+  <table class="meal_status">
+    <tr>
+      <td class="delivery_details_title" width="35%">Date</td>
+      <td class="delivery_details_title" width="46%">Meal</td>
+      <td class="delivery_details_title">Status</td>
+    </tr>
+    <tr>
+      <td class="deliver_details_value" width="35%">
+        <%= restaurant_order.order_date.strftime('%a, %b %d, %Y') %>
+      </td>
+      <td class="deliver_details_value" width="46%">
+        <%= restaurant_order.meal %>
+      </td>
+      <td class="deliver_details_value"><%= restaurant_order.status %></td>
+    </tr>
+  </table>
+
+  <!-- Order Details -->
+  <div class="order_detail_parent">
+    <div class="food_frame">
+      <div class="food_badge">
+        <div>
+          <%= wicked_pdf_image_tag 'chinese-food.png'%>
+        </div>
+        <div>
+          <p>Items</p>
+          <h3><%= restaurant_order.items_count %></h3>
+        </div>
+      </div>
+
+      <div class="food_badge" style="width: 115px;">
+        <div>
+          <%= wicked_pdf_image_tag 'cutlery.png'%>
+        </div>
+        <div>
+          <p>Cutlery</p>
+          <h3 style="padding-left: 10px;"><%= restaurant_order.cutlery_count %></h3>
+        </div>
+      </div>
+
+      <div class="food_badge">
+        <div>
+          <%= wicked_pdf_image_tag 'paper-bag.png'%>
+        </div>
+        <div>
+          <p>Bags</p>
+          <h3><%= restaurant_order.bags_count %></h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bill Summary -->
+    <div class="bill_frame">
+      <div>
+        <p>Food Total</p>
+        <% if restaurant_order.tip.present? %>
+          <p>Tip</p>
+        <%end%>
+        <p>Tax</p>
+        <h3>Grand Total</h3>
+      </div>
+      <div style="text-align: right; position: absolute; right: 40px; padding-right: 10px;">
+        <p><%= restaurant_order.food_total %></p>
+        <p><%= restaurant_order.tip %></p>
+        <p><%= restaurant_order.tax %></p>
+        <h3><%= number_to_currency(restaurant_order.grand_total) %></h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Items Table -->
+  <div class="table_container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Item</th>
+          <th>Food Total</th>
+          <th>Order Total</th>
+          <th>Cutlery</th>
+          <th>Bag #</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% restaurant_order.restaurant_order_items.each do |item| %>
+          <tr>
+            <td><%= item.employee_name %></td>
+            <td>
+              <%= item.item_name %><br>
+              <% item.addons.each do |addon| %>
+                <span class="item_detail"><%= addon.item_name %>: <%= addon.instruction %></span><br>
+              <% end %>
+            </td>
+            <td>
+              <%= number_to_currency(item.food_total) %><br>
+              <% item.addons.each do |addon| %>
+                <span class="item_detail"><%= number_to_currency(addon.item_price) %></span><br>
+              <% end %>
+            </td>
+            <td>
+              Tip: <%= number_to_currency(item.tip) %><br>
+              Tax: <%= number_to_currency(item.tax) %><br>
+              Paid by user: <%= number_to_currency(item.user_contri) %><br>
+              Paid by Office: <%= number_to_currency(item.office_contri) %>
+            </td>
+            <td><%= item.cutlery ? 'Yes' : 'No' %></td>
+            <td><%= item.bags %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

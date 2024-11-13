@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order PDF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: #2D3958; 
+            margin: 0; 
+            padding: 0px 20px; 
+        }
+
+        table {
+            width: 100%;
+            margin-top: 24px;
+            border-collapse: collapse;
+        }
+
+
+        
+        .delivery_details_title {
+            font-size: 14px;
+            color: #6A7A9B;
+            padding : 16px 0px;
+            padding-left: 18px;
+        }
+        .deliver_details_value{
+            padding-bottom: 16px;
+            padding-left: 18px;
+        }
+        .meal_status {
+            background-color: #F4F7FC;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+
+
+        .order_detail_parent div {
+            display: inline-block;
+        }
+        .food_frame, .bill_frame {
+            width: 48%; 
+            vertical-align: top
+        }
+        .food_badge {
+            background-color: #F4F7FC; 
+            border-radius: 5px; 
+            margin-right: 20px ; 
+            height: 88px; 
+            width: 110px;
+        }
+        .food_badge p {
+            font-size: 14px; 
+            color: #6C7A93;
+        }
+        .food_badge h3 {
+            padding-left: 6px;
+        }
+        .food_badge img {
+            height: 30px; 
+            padding-bottom: 13px; 
+            padding-left: 15px; 
+            padding-right: 8px;
+        }
+        .bill_frame {
+            background-color: #F4F7FC; 
+            border-radius: 5px; 
+            padding-left: 30px;
+        }
+
+        .table_container td {
+            padding: 13px;
+            font-size: 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        
+        
+        th {
+            font-weight: bold;
+            background-color: #F4F7FC;
+            padding: 15px;
+            font-size: 14px;
+            text-align: left;
+        }
+        .table_container tbody tr:nth-child(even) {
+            background-color: #F9F9F9;
+        }
+        thead tr th:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        thead tr th:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .item_detail {
+            color: #6C7A93;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        .cancelled {
+            color: #6C7A93;
+            font-style: italic;
+            font-size: 12px;
+        }
+        .order_detail_parent {
+            width: 100%;
+            margin-top: 24px;
+        }
+        
+    </style>
+    </head>
+    <body>
+        <%= yield %>
+    </body>
+</html>
