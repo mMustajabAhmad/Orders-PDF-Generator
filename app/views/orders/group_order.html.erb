@@ -103,7 +103,7 @@
         <td colspan="5" style="height: 20px; background-color: white"></td>
       <tr>
         <th width="13%">Qunatity</th>
-        <th width="20%">Item Name</th>
+        <th width="18%" style="padding-left:25px">Item Name</th>
         <th width="22%">Special Instructions</th>
         <th width="17%">Labeled as</th>
         <th width="17%">Item Price</th>
@@ -114,7 +114,7 @@
       <% order.order_items.each do |item| %>
         <tr>
           <td><%= item.item_quantity %></td>
-          <td><%= item.item_name %></td>
+          <td style="padding-left:25px"><%= item.item_name %></td>
           <td><%= item.instructions %></td>
           <td><%= item.labeled_as %></td>
           <td><%= number_to_currency(item.item_price) %></td>

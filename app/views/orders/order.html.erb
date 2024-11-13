@@ -101,10 +101,10 @@
         </tr>
         <td colspan="5" style="height: 20px; background-color: white"></td>
         <tr>
-            <th width="13%">Qunatity</th>
-            <th width="25%">Item Name</th>
-            <th width="25%">Special Instructions</th>
-            <th width="20%">Item Price</th>
+            <th width="12%">Qunatity</th>
+            <th width="25%" style="padding-left:45px">Item Name</th>
+            <th width="35%" style="padding-left:15px">Special Instructions</th>
+            <th width="18%">Item Price</th>
             <th width="20%">Total</th>
         </tr>
     </thead>
@@ -112,8 +112,8 @@
       <% order.order_items.each do |item| %>
         <tr>
           <td><%= item.item_quantity %></td>
-          <td><%= item.item_name %></td>
-          <td><%= item.instructions %></td>
+          <td style="padding-left:45px"><%= item.item_name %></td>
+          <td style="padding-left:15px"><%= item.instructions %></td>
           <td><%= number_to_currency(item.item_price) %></td>
           <td><%= number_to_currency(item.item_total) %></td>
         </tr>
